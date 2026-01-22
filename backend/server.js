@@ -23,36 +23,21 @@ app.use(express.urlencoded({ extended: true }));
 
 const allowedOrigins = [
   "http://localhost:5173", // frontend local
-  "http://localhost:5174",
-  "https://prescriptofrontend-sigma.vercel.app", 
-  "https://prescripto-three-alpha.vercel.app"
-   
+  "http://localhost:5174", // admin local
+  "https://prescriptofrontend-sigma.vercel.app",
+  "https://prescripto-three-alpha.vercel.app" // admin vercel
 ];
 
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin) return callback(null, true); // allow server-to-server
-      if (allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: allowedOrigins,
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: [
-      "Content-Type",
-      "Authorization",
-      "token",
-      "atoken",
-      "dtoken",
-    ],
+    allowedHeaders: ["Content-Type", "Authorization","token","atoken","dtoken"],
   })
 );
 
-// IMPORTANT
-app.options("*", cors());
+
 //API End Points
 
 app.use('/api/admin',adminRouter)
