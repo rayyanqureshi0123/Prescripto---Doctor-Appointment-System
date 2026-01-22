@@ -14,10 +14,29 @@ const port=process.env.PORT || 4000;
 connectDB()
 connectCloudinary()
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 //MIDDLEWARES
 
-app.use(express.json());
-app.use(cors());
+
+
+const allowedOrigins = [
+  "http://localhost:5173", // frontend local
+  "http://localhost:5174", // admin local
+ 
+   // admin vercel
+];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization","token","atoken","dtoken"],
+  })
+);
+
 
 //API End Points
 
@@ -32,4 +51,4 @@ app.get('/',(req,res)=>{
 res.send('API working')
 })
 
-app.listen(port,()=>console.log("server started",port))
+app.listen(port,()=>console.log("serever started",port))
