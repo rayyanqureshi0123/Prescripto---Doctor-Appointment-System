@@ -5,13 +5,10 @@ Prescripto is a full-stack hospital appointment booking and management system wh
 ## Live Project Links
 
 User Frontend:  
-https://prescripto-frontend-rouge.vercel.app
+https://prescriptofrontend-sigma.vercel.app
 
 Admin Panel:  
-https://prescripto-ebon-three.vercel.app
-
-Backend API:  
-https://prescripto-backend-ay41.onrender.com
+https://prescripto-three-alpha.vercel.app
 
 Note: The backend is hosted on Render Free Tier, so the first request may take 30–60 seconds due to cold start.
 
