@@ -1,0 +1,19 @@
+# ===== Environment variables =====
+.env
+.env.*
+*/.env
+*/.env.*
+
+# ===== Node =====
+node_modules/
+
+# ===== Builds =====
+dist/
+build/
+
+# ===== Logs =====
+*.log
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
