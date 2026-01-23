@@ -42,7 +42,7 @@ app.use(
 );
 
 // ✅ VERY IMPORTANT: handle preflight requests
-app.options("*", cors());
+app.options("/*", cors());
 
 // =======================
 // API Routes
